@@ -1,25 +1,23 @@
-name: Build and Deploy
-
+name: Push to GitHub Pages on push to main
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
-
+    name: Deploy
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout master
-      uses: actions/checkout@v1
-      with:
-        submodules: true
+      - name: Checkout code
+        uses: actions/checkout@v1
 
-    - name: Hugo Deploy GitHub Pages
-      uses: benmatselby/hugo-deploy-gh-pages@master
-      env:
-        HUGO_VERSION: 0.88.0
-        TARGET_REPO: tairoon1/tairoon1.github.io
-        TOKEN: ${{ secrets.EXAMPLE_TOKEN }}
-        CNAME: tairoon1.github.io
+      - name: Deploy the site
+        uses: benmatselby/hugo-deploy-gh-pages@main
+        env:
+          HUGO_VERSION: 0.88.0
+          TARGET_REPO: tairoon1/tairoon1.github.io
+          TARGET_BRANCH: main
+          TOKEN: ${{ secrets.EXAMPLE_TOKEN }}
+          HUGO_ARGS: '-t academic'
+          CNAME: tairoon1.github.io
