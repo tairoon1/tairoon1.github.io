@@ -22,4 +22,4 @@ jobs:
         HUGO_VERSION: 0.105.0
         TARGET_REPO: tairoon1/tairoon1.github.io
         TOKEN: ${{ secrets.EXAMPLE_TOKEN }}
-        CNAME:
+        
