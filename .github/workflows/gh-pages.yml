@@ -19,7 +19,7 @@ jobs:
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
-        HUGO_VERSION: 0.105.0
+        HUGO_VERSION: 0.88.0
         TARGET_REPO: tairoon1/tairoon1.github.io
         TOKEN: ${{ secrets.EXAMPLE_TOKEN }}
-        
+        CNAME: tairoon1.github.io
